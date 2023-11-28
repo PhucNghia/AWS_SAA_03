@@ -1,4 +1,7 @@
-/terraform/**/.terraform
-/terraform/terraform.tfstate
-/terraform/terraform.tfstate.backup
-/terraform/Terraform-Topics
+/lesson*/terraform/.terraform
+/lesson*/terraform/**/.terraform
+/lesson*/terraform/terraform.tfstate
+/lesson*/terraform/terraform.tfstate.backup
+/lesson*/terraform/.terraform.lock.hcl
+/Terraform-Topics
+/terraform/*
