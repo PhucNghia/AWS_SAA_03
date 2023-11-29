@@ -7,7 +7,7 @@ account-blocklist:  # at least one account ID
 - "random-account"
 
 accounts:
-  "734921941180": # danlv3
+  "510178978886": # danlv3
     filters:
       IAMUser:
       - danlv3
