@@ -6,9 +6,9 @@
 */
 
 provider "aws" {
-  profile                  = "nghiapn2"
+  profile                  = "danlv3"
   region                   = var.region
-  shared_credentials_files = ["/home/nghiapn2/.aws/credentials"]
+  shared_credentials_files = ["/home/danlv3/.aws/credentials"]
 }
 
 module "iam" {
