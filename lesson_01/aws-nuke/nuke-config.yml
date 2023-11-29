@@ -7,20 +7,20 @@ account-blocklist:  # at least one account ID
 - "random-account"
 
 accounts:
-  "734921941180": # nghiapn97
+  "734921941180": # danlv3
     filters:
       IAMUser:
-      - nghiapn2
+      - danlv3
       IAMUserAccessKey:
       - property: UserName
-        value: nghiapn2
+        value: danlv3
       IAMGroup:
       - "admin_group"
       IAMUserPolicyAttachment:
       - property: PolicyName
         value: IAMUserChangePassword
       - property: UserName
-        value: nghiapn2
+        value: danlv3
       IAMPolicy:
       - property: Name
         value: policy_access_ec2
