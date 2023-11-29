@@ -11,10 +11,6 @@ provider "aws" {
   shared_credentials_files = ["/home/danlv3/.aws/credentials"]
 }
 
-module "iam" {
-  source = "./iam"
-}
-
 module "s3" {
   source = "./s3"
 }
