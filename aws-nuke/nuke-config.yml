@@ -11,29 +11,18 @@ accounts:
     filters:
       IAMUser:
       - nghiapn2
+      IAMLoginProfile:
+      - nghiapn2
       IAMUserAccessKey:
       - property: UserName
         value: nghiapn2
-      IAMGroup:
-      - "admin_group"
       IAMUserPolicyAttachment:
       - property: PolicyName
         value: IAMUserChangePassword
       - property: UserName
         value: nghiapn2
-      IAMPolicy:
-      - property: Name
-        value: policy_access_ec2
 
 resource-types:
-  targets:
-  - IAMUserPolicyAttachment
-  - IAMUserAccessKey
-  - IAMUser
-  - S3Bucket
-  - IAMPolicy
-  - IAMRole
-  - IAMGroup
-  - EC2Instance
-  - EC2Volume
-  - EC2SecurityGroup
+  excludes:
+    - Budget
+    - OSPackage
