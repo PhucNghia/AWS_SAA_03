@@ -18,12 +18,23 @@
     + create policy access to s3
     + attach policy to iam group
   - aws_organization
-    + create an organization account & can switch role
+    + create an OU and an organization account into OU 
+    + create role and attach policy to role
+    + can switch role
   - service_control_policies
     + create scp and attach to OU
   - organization_trail
     + TODO
 */
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.30.0"
+    }
+  }
+}
+
 provider "aws" {
   region                   = var.region
   profile                  = "nghiapn2"
@@ -64,12 +75,11 @@ module "aws_organization" {
   source = "./aws_organization"
 }
 
-
 module "service_control_policies" {
-  source = "./service_control_policies"
+  source     = "./service_control_policies"
+  develop_ou = module.aws_organization.develop_ou
 }
 
-/* TODO
 module "organization_trail" {
+  source = "./organization_trail"
 }
-*/

@@ -9,3 +9,7 @@ variable "dev_account_name" {
 variable "dev_email_address" {
   default = "dev_nghiapn_01@gmail.com"
 }
+
+variable "develop_ou" {
+  default = "develop-ou"
+}
