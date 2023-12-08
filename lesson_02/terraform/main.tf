@@ -24,6 +24,15 @@
   - organization_trail
     + TODO
 */
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.30.0"
+    }
+  }
+}
+
 provider "aws" {
   region                   = var.region
   profile                  = "nghiapn2"
@@ -66,7 +75,8 @@ module "aws_organization" {
 
 
 module "service_control_policies" {
-  source = "./service_control_policies"
+  source     = "./service_control_policies"
+  develop_ou = module.aws_organization.develop_ou
 }
 
 /* TODO
