@@ -18,7 +18,9 @@
     + create policy access to s3
     + attach policy to iam group
   - aws_organization
-    + create an organization account & can switch role
+    + create an OU and an organization account into OU 
+    + create role and attach policy to role
+    + can switch role
   - service_control_policies
     + create scp and attach to OU
   - organization_trail
@@ -72,7 +74,6 @@ module "iam_iam_group" {
 module "aws_organization" {
   source = "./aws_organization"
 }
-
 
 module "service_control_policies" {
   source     = "./service_control_policies"
