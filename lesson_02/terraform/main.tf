@@ -22,7 +22,7 @@
   - service_control_policies
     + create scp and attach to OU
   - organization_trail
-    + TODO
+    + Create Management Events CloudTrail
 */
 terraform {
   required_providers {
@@ -79,7 +79,6 @@ module "service_control_policies" {
   develop_ou = module.aws_organization.develop_ou
 }
 
-/* TODO
 module "organization_trail" {
+  source = "./organization_trail"
 }
-*/
