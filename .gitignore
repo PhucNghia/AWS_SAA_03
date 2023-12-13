@@ -5,3 +5,4 @@
 /lesson*/terraform/.terraform.lock.hcl
 /Terraform-Topics
 /terraform/*
+/.idea/*
