@@ -1,5 +1,5 @@
 variable "trusted_arn_entity" {
-  default = "arn:aws:iam::734921941180:root"
+  default = "arn:aws:iam::510178978886:root"
 }
 
 variable "dev_account_name" {
