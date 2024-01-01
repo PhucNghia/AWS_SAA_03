@@ -2,5 +2,11 @@
 /lesson*/terraform/terraform.tfstate
 /lesson*/terraform/terraform.tfstate.backup
 /lesson*/terraform/.terraform.lock.hcl
+
+/eks/terraform/terraform.tfstate
+/eks/terraform/terraform.tfstate.backup
+/eks/terraform/.terraform.lock.hcl
+
 /Terraform-Topics
 /terraform/*
+/learn-terraform-provision-eks-cluster

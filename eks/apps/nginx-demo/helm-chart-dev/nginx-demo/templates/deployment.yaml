@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.pod.name }}
+  namespace: {{ .Values.cluster.namespace }}
+  labels:
+    app: {{ .Values.pod.name }} # must same <selector: app> of service
+spec:
+  replicas: {{ .Values.pod.number }}
+  selector:
+    matchLabels:
+      app: {{ .Values.pod.name }}
+  template:
+    metadata:
+      name: {{ .Values.pod.name }}
+      annotations:
+        deploymentTime: {{ .Values.pod.deploymentTime }}
+      labels:
+        app: {{ .Values.pod.name }}
+    spec:
+      terminationGracePeriodSeconds: 45
+      containers:
+      - name: {{ .Values.pod.name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+          - containerPort: {{ .Values.pod.port }}
+        resources:
+          limits:
+            memory: {{ .Values.pod.resource.limits.memory }}
+            cpu: {{ .Values.pod.resource.limits.cpu }}
+          requests:
+            memory: {{ .Values.pod.resource.requests.memory }}
+            cpu: {{ .Values.pod.resource.requests.cpu }}
+      nodeSelector:
+        {{ .Values.nodeSelector.nodegroup }}
