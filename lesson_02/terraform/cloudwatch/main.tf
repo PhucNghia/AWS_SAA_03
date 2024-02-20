@@ -1,6 +1,6 @@
 /*
     Check EC2 CPU usage
-*/
+*/ 
 
 resource "aws_cloudwatch_metric_alarm" "cpu_high" {
   alarm_name          = "[${element(var.ec2_instance_names, 0)}] cpu_usage_high"

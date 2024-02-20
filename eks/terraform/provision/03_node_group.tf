@@ -30,20 +30,17 @@ resource "aws_iam_role_policy_attachment" "nodes-AmazonEC2ContainerRegistryReadO
 
 resource "aws_eks_node_group" "private-nodes" {
   cluster_name    = aws_eks_cluster.empa_eks_cluster.name
-  node_group_name = "empa-private-nodes"
+  node_group_name = "empa-private-node-group"
   node_role_arn   = aws_iam_role.nodes.arn
-
-  subnet_ids = [
-    for id in aws_subnet.private_subnets[*].id : id
-  ]
+  subnet_ids      = aws_subnet.private_subnets[*].id
 
   capacity_type  = "ON_DEMAND"
   instance_types = [var.instance_type]
 
   scaling_config {
-    desired_size = 1
-    max_size     = 3
-    min_size     = 1
+    desired_size = 2
+    max_size     = 6
+    min_size     = 2
   }
 
   labels = {
@@ -61,20 +58,22 @@ resource "aws_eks_node_group" "private-nodes" {
 
 resource "aws_eks_node_group" "public-nodes" {
   cluster_name    = aws_eks_cluster.empa_eks_cluster.name
-  node_group_name = "empa-public-nodes"
+  node_group_name = "empa-public-node-group"
   node_role_arn   = aws_iam_role.nodes.arn
+  subnet_ids      = aws_subnet.public_subnets[*].id
 
-  subnet_ids = [
-    for id in aws_subnet.public_subnets[*].id : id
-  ]
+  # or:
+  # subnet_ids = [
+  #   for id in aws_subnet.public_subnets[*].id : id
+  # ]
 
   capacity_type  = "ON_DEMAND"
   instance_types = [var.instance_type]
 
   scaling_config {
-    desired_size = 1
-    max_size     = 3
-    min_size     = 1
+    desired_size = 2
+    max_size     = 6
+    min_size     = 2
   }
 
   labels = {

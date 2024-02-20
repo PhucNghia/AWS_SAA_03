@@ -27,9 +27,7 @@ resource "aws_eks_cluster" "empa_eks_cluster" {
   role_arn = aws_iam_role.empa_eks_cluster_role.arn
 
   vpc_config {
-    subnet_ids = concat(
-      [for id in aws_subnet.private_subnets[*].id : id]
-    )
+    subnet_ids = ws_subnet.private_subnets[*].id
   }
 
   tags = {
